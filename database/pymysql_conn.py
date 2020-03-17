@@ -34,6 +34,9 @@ class DataBase:
         self.cur = self.con.cursor()
 
     def to_df(self, SQL):
+        """
+        To Pandas DataFrame
+        """
         self.cur.execute(SQL)
         columns = [c[0] for c in self.cur.description]
         data = list(self.cur.fetchall())
